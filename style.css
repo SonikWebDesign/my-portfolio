@@ -364,3 +364,31 @@ nav{
   .srv-row{grid-template-columns:repeat(3,1fr);}
   .stats-grid{grid-template-columns:repeat(4,1fr);max-width:680px;}
 }
+
+
+/* === SONIK FINAL FIXES 2026-06-10 === */
+html, body { max-width: 100%; }
+#c, #vortex-canvas { pointer-events: none !important; }
+.panel { width: 100%; max-width: 100vw; }
+.hero-glass, .hero-btns, .btn-p, .btn-g { position: relative; z-index: 80; }
+.btn-p, .btn-g, .d-btn, .d-nav-item, .float-main, .float-link { touch-action: manipulation; }
+#drawer-overlay:not(.open) { opacity: 0 !important; pointer-events: none !important; }
+#drawer:not(.open) { right: -100% !important; }
+#p-pricing { align-items: center; overflow-x: hidden; padding-left: 16px; padding-right: 16px; }
+.pricing-inner { width: min(100%, 720px); margin: 0 auto; }
+.pricing-img-wrap { width: 100%; max-width: 680px; margin: 0 auto; border-radius: 18px; overflow: hidden; background: #050812; }
+.pricing-img { display: block; width: 100%; height: auto; max-height: none; object-fit: contain; }
+@media (max-width: 640px) {
+  .panel { padding: 66px 14px 58px; }
+  .big-title { font-size: clamp(2.4rem, 13vw, 4.4rem); }
+  .pricing-start { font-size: .62rem; margin-bottom: 12px; }
+  .pricing-img-wrap { border-radius: 14px; max-width: 100%; }
+  #float-cta { bottom: 64px; right: 12px; }
+  .hero-btns { z-index: 200; }
+  .hero-btns a { min-width: 145px; }
+  .scroll-cue { pointer-events: none; }
+}
+@media (max-width: 390px) {
+  .hero-btns { gap: 8px; }
+  .btn-p, .btn-g { width: 100%; min-width: 0; }
+}

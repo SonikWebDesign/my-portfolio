@@ -525,3 +525,25 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+
+
+// === SONIK FINAL MOBILE CLICK FIX ===
+(function(){
+  function ready(fn){ if(document.readyState !== 'loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+  ready(function(){
+    document.querySelectorAll('.hero-btns [data-target]').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var target = parseInt(btn.getAttribute('data-target'), 10);
+        if (typeof window.goTo === 'function') window.goTo(target);
+      }, { passive: false });
+      btn.addEventListener('touchend', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var target = parseInt(btn.getAttribute('data-target'), 10);
+        if (typeof window.goTo === 'function') window.goTo(target);
+      }, { passive: false });
+    });
+  });
+})();
