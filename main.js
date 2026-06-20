@@ -50,6 +50,7 @@
     dots.forEach((dot, i) => dot.classList.toggle('on', i === index));
     hintDots.forEach((dot, i) => dot.classList.toggle('on', i === index));
     updateDrawerActive(index);
+    $$('.nav-link').forEach((a, i) => a.classList.toggle('on', i === index));
     if (index === 3) startCounters();
   }
 
@@ -87,8 +88,8 @@
     $$('.lang-btn').forEach((button) => {
       const on = button.textContent.trim().toLowerCase() === lang;
       button.classList.toggle('on', on);
-      button.style.background = on ? 'rgba(0,80,200,.08)' : 'transparent';
-      button.style.color = on ? '#0055ff' : 'rgba(0,60,160,.35)';
+      button.style.background = on ? 'rgba(217,180,90,.08)' : 'transparent';
+      button.style.color = on ? '#d9b45a' : 'rgba(217,180,90,.35)';
     });
 
     $$('[data-en]').forEach((el) => {
@@ -302,7 +303,7 @@
         speed: (0.0004 + Math.random() * 0.0006) * (Math.random() > .5 ? 1 : -1),
         size: Math.random() * 1.2 + 0.2,
         opacity: Math.random() * 0.4 + 0.05,
-        hue: 200 + Math.random() * 40
+        hue: 42 + Math.random() * 14
       });
     }
 
@@ -312,7 +313,7 @@
       const cx = width / 2;
       const cy = height / 2;
       const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, 120);
-      gradient.addColorStop(0, 'rgba(0,100,255,0.06)');
+      gradient.addColorStop(0, 'rgba(217,180,90,0.06)');
       gradient.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
@@ -374,13 +375,13 @@
       renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setClearColor(0xedf2f8, 1);
+      renderer.setClearColor(0x070b16, 1);
 
       scene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, .1, 2000);
 
-      galaxy = createGalaxyParticleSystem(22000, 150, 3, '#0088ff', '#003399', 16, .042);
-      dust = createGalaxyParticleSystem(6000, 195, 2, '#88bbff', '#4477cc', 30, .055);
+      galaxy = createGalaxyParticleSystem(22000, 150, 3, '#d9b45a', '#b9974a', 11, .042);
+      dust = createGalaxyParticleSystem(4200, 195, 2, '#e8cd84', '#b9974a', 18, .055);
       scene.add(galaxy);
       scene.add(dust);
 
@@ -395,7 +396,7 @@
         corePositions[i * 3 + 2] = Math.sin(a) * Math.cos(b) * r;
       }
       coreGeometry.setAttribute('position', new THREE.BufferAttribute(corePositions, 3));
-      core = new THREE.Points(coreGeometry, new THREE.PointsMaterial({ size: .9, color: 0x4499ff, transparent: true, opacity: .6, depthWrite: false }));
+      core = new THREE.Points(coreGeometry, new THREE.PointsMaterial({ size: .9, color: 0xe8cd84, transparent: true, opacity: .6, depthWrite: false }));
       scene.add(core);
 
       const starsGeometry = new THREE.BufferGeometry();
@@ -406,13 +407,13 @@
         starPositions[i * 3 + 2] = (Math.random() - .5) * 900;
       }
       starsGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-      scene.add(new THREE.Points(starsGeometry, new THREE.PointsMaterial({ size: .18, color: 0x3366bb, transparent: true, opacity: .18 })));
+      scene.add(new THREE.Points(starsGeometry, new THREE.PointsMaterial({ size: .18, color: 0x6b5a33, transparent: true, opacity: .18 })));
 
       shardGroup = new THREE.Group();
       for (let i = 0; i < 16; i++) {
         const geometry = new THREE.OctahedronGeometry(Math.random() * 2 + .5, 0);
         const material = new THREE.MeshBasicMaterial({
-          color: new THREE.Color().setHSL(.6 + Math.random() * .05, .7, .55 + Math.random() * .2),
+          color: new THREE.Color().setHSL(.115 + Math.random() * .03, .65, .48 + Math.random() * .2),
           wireframe: true,
           transparent: true,
           opacity: .12 + Math.random() * .18
