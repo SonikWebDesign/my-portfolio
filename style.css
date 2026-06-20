@@ -493,15 +493,19 @@ nav{background:rgba(7,10,20,.82);border-bottom:1px solid rgba(217,180,90,.18);ba
 .ham-line{background:#e8cd84;}
 .avail-badge{color:rgba(236,228,207,.72);}
 .lang-btn.on{color:#e8cd84 !important;background:rgba(217,180,90,.12) !important;}
-.nav-links{display:none;}
-.nav-link{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,228,207,.5);text-decoration:none;position:relative;padding:6px 0;cursor:pointer;white-space:nowrap;transition:color .25s;-webkit-tap-highlight-color:transparent;}
+.nav-links{display:flex;align-items:center;gap:16px;flex:1 1 auto;min-width:0;margin:0 14px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-link{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,228,207,.5);text-decoration:none;position:relative;padding:6px 0;cursor:pointer;white-space:nowrap;transition:color .25s;-webkit-tap-highlight-color:transparent;flex:0 0 auto;}
 .nav-link::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:linear-gradient(90deg,#d9b45a,#e8cd84);transform:scaleX(0);transition:transform .3s cubic-bezier(.22,1,.36,1);}
 .nav-link:hover{color:#e8cd84;}
 .nav-link.on{color:#e8cd84;}
 .nav-link.on::after,.nav-link:hover::after{transform:scaleX(1);}
+nav .ham{display:none;}
+@media(max-width:879px){
+  nav .avail-badge{display:none;}
+}
 @media(min-width:880px){
-  .nav-links{display:flex;align-items:center;gap:26px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
-  nav .ham{display:none;}
+  .nav-links{flex:0 1 auto;overflow:visible;gap:26px;margin-left:auto;margin-right:26px;}
   nav .avail-badge{display:none;}
 }
 
@@ -617,5 +621,4 @@ nav{background:rgba(7,10,20,.82);border-bottom:1px solid rgba(217,180,90,.18);ba
 /* ── MOBILE TUNING ── */
 @media(max-width:640px){
   .hero-title{font-size:clamp(4rem,19vw,7rem);}
-  .nav-link{display:none;}
 }
