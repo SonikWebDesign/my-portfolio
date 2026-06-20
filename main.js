@@ -59,7 +59,7 @@
     transitioning = true;
     currentSection = next;
     showPanel(next);
-    window.setTimeout(() => { transitioning = false; }, 600);
+    window.setTimeout(() => { transitioning = false; }, 520);
   }
 
   function goNext() { if (currentSection < TOTAL - 1) goTo(currentSection + 1); }
@@ -190,11 +190,12 @@
 
     let wheelLock = false;
     window.addEventListener('wheel', (event) => {
-      if (event.target.closest('.port-slider,.port-cats,#p-portfolio,#p-services,#p-process,#p-contact,#p-pricing')) return;
+      if (event.target.closest('.port-slider,.port-cats,#p-portfolio,.price-grid')) return;
       if (wheelLock) return;
+      if (Math.abs(event.deltaY) < 12) return;
       wheelLock = true;
       event.deltaY > 0 ? goNext() : goPrev();
-      window.setTimeout(() => { wheelLock = false; }, 700);
+      window.setTimeout(() => { wheelLock = false; }, 430);
     }, { passive: true });
 
     let touchY = 0;
@@ -444,7 +445,7 @@
       function animate() {
         requestAnimationFrame(animate);
         time += .001;
-        animatedSection += (currentSection - animatedSection) * .055;
+        animatedSection += (currentSection - animatedSection) * .085;
         const sectionA = Math.floor(animatedSection);
         const sectionB = Math.min(sectionA + 1, TOTAL - 1);
         const t = animatedSection - sectionA;
@@ -456,11 +457,11 @@
           lerp(a.p[1], b.p[1], t) - mouse.y * 2.5,
           lerp(a.p[2], b.p[2], t)
         );
-        camera.position.lerp(target, .07);
+        camera.position.lerp(target, .1);
         camera.lookAt(0, 0, 0);
 
-        galaxy.rotation.x += (lerp(a.rx, b.rx, t) - galaxy.rotation.x) * .05;
-        galaxy.rotation.y += (lerp(a.ry, b.ry, t) - galaxy.rotation.y) * .05;
+        galaxy.rotation.x += (lerp(a.rx, b.rx, t) - galaxy.rotation.x) * .075;
+        galaxy.rotation.y += (lerp(a.ry, b.ry, t) - galaxy.rotation.y) * .075;
         galaxy.rotation.z += .0007;
         dust.rotation.x = galaxy.rotation.x;
         dust.rotation.y = galaxy.rotation.y;
@@ -504,11 +505,27 @@
     document.head.appendChild(script);
   }
 
+  function initPricingTilt() {
+    if (!window.matchMedia('(pointer:fine)').matches) return;
+    $$('.price-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - .5;
+        const py = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = `perspective(900px) rotateX(${-py * 8}deg) rotateY(${px * 8}deg) translateY(-6px)`;
+        card.style.setProperty('--mx', `${(px + .5) * 100}%`);
+        card.style.setProperty('--my', `${(py + .5) * 100}%`);
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+
   function init() {
     initNavigationEvents();
     initPortfolioTouch();
     initCursor();
     initVortexCanvas();
+    initPricingTilt();
     showPanel(0);
     loadThree();
   }

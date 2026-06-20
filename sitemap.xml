@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sonikwebdesign.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://sonikwebdesign.com/</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://sonikwebdesign.com/work-touched.webp</image:loc><image:title>Touched by SMG beauty studio website</image:title></image:image>
+    <image:image><image:loc>https://sonikwebdesign.com/work-nima.webp</image:loc><image:title>NIMA Optical Shop website</image:title></image:image>
+    <image:image><image:loc>https://sonikwebdesign.com/work-woodra.webp</image:loc><image:title>Woodra A-Frame guest house website</image:title></image:image>
+  </url>
 </urlset>
