@@ -85,6 +85,8 @@
 
   function setLang(nextLang) {
     lang = nextLang === 'bg' ? 'bg' : 'en';
+    try { localStorage.setItem('sonik_lang', lang); } catch (e) {}
+    try { document.documentElement.lang = lang === 'bg' ? 'bg' : 'en'; } catch (e) {}
     $$('.lang-btn').forEach((button) => {
       const on = button.textContent.trim().toLowerCase() === lang;
       button.classList.toggle('on', on);
@@ -521,7 +523,24 @@
     });
   }
 
+  function detectLang() {
+    try {
+      var saved = localStorage.getItem('sonik_lang');
+      if (saved === 'bg' || saved === 'en') return saved;
+    } catch (e) {}
+    try {
+      var tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').toLowerCase();
+      if (tz === 'europe/sofia') return 'bg';
+    } catch (e) {}
+    var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || navigator.userLanguage || ''];
+    for (var i = 0; i < langs.length; i++) {
+      if ((langs[i] || '').toLowerCase().indexOf('bg') === 0) return 'bg';
+    }
+    return 'en';
+  }
+
   function init() {
+    setLang(detectLang());
     initNavigationEvents();
     initPortfolioTouch();
     initCursor();
