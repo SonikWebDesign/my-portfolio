@@ -1,0 +1,128 @@
+[
+  {
+    "name": "NiceHotel",
+    "category": "hospitality",
+    "label": "Хотел и настаняване",
+    "image": "NiceHotel-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Craftivo",
+    "category": "personal",
+    "label": "Личен бранд",
+    "image": "Craftivo-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Strive",
+    "category": "business",
+    "label": "Консултантски услуги",
+    "image": "Strive-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Forma",
+    "category": "business",
+    "label": "Технологичен бизнес",
+    "image": "Forma-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Spotlight",
+    "category": "business",
+    "label": "Дигитална агенция",
+    "image": "Spotlight-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Academica",
+    "category": "education",
+    "label": "Онлайн обучения",
+    "image": "Academica-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Constructify",
+    "category": "business",
+    "label": "Строителство",
+    "image": "Constructify-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Flavora",
+    "category": "hospitality",
+    "label": "Ресторант",
+    "image": "Flavora-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "UniPulse",
+    "category": "education",
+    "label": "Образование",
+    "image": "UniPulse-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Stratify",
+    "category": "business",
+    "label": "Бизнес консултиране",
+    "image": "Stratify-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Travely",
+    "category": "hospitality",
+    "label": "Туристическа агенция",
+    "image": "Travely-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Strada",
+    "category": "business",
+    "label": "Корпоративен сайт",
+    "image": "Strada-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "MediCare",
+    "category": "business",
+    "label": "Медицински център",
+    "image": "MediCare-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "ShopWise",
+    "category": "shop",
+    "label": "Онлайн магазин",
+    "image": "ShopWise-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Rival",
+    "category": "business",
+    "label": "Креативно студио",
+    "image": "Rival-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "Clarity",
+    "category": "business",
+    "label": "Дигитални услуги",
+    "image": "Clarity-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "iPortfolio",
+    "category": "personal",
+    "label": "Лично портфолио",
+    "image": "iPortfolio-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  },
+  {
+    "name": "TravelTime",
+    "category": "hospitality",
+    "label": "Пътувания",
+    "image": "TravelTime-bootstrap-website-template.webp",
+    "kind": "template-preview"
+  }
+]
