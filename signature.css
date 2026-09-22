@@ -87,3 +87,11 @@
 @media(max-width:620px){.hero-buttons>.button.has-action-icon{min-height:46px;padding:8px 9px 8px 13px;gap:12px}.hero-buttons>.button.has-action-icon>.action-icon{width:26px;height:26px}.hero-buttons>.button.has-action-icon>.action-icon svg{width:14px;height:14px}.hero-buttons .text-link.has-action-icon{gap:8px}.hero-buttons .text-link>.action-icon{width:23px;height:23px}.hero-buttons .text-link>.action-icon svg{width:12px;height:12px}.mobile-contact .button.has-action-icon{gap:11px;padding:8px 9px 8px 13px}.mobile-contact .button.has-action-icon>.action-icon{width:24px;height:24px}.reel-all.has-action-icon{gap:8px}.reel-all>.action-icon{width:22px;height:22px}.reel-card-bar>.action-icon{width:18px;height:18px}.reel-card-bar>.action-icon svg{width:11px;height:11px}}
 @media(max-width:360px){.hero-buttons>.button.has-action-icon{padding-left:10px;gap:9px}.hero-buttons .text-link.has-action-icon{gap:5px}.hero-buttons .text-link>.action-icon{width:20px;height:20px}.mobile-contact .button.has-action-icon{gap:8px;padding-left:10px}.mobile-contact{gap:7px}}
 @media(prefers-reduced-motion:reduce){.action-icon,.action-icon svg{transition:none}}
+
+/* Direct enquiries: clear pending, success and retry states. */
+.form-honeypot{display:none!important}
+.enquiry-form[aria-busy=true] .form-submit{cursor:progress;opacity:.8;transform:none}
+.enquiry-form input:disabled,.enquiry-form select:disabled,.enquiry-form textarea:disabled{opacity:.72;cursor:wait}
+.enquiry-form[data-form-state=success] .form-submit{background:#24372e;border-color:#678b73;color:#d8eadf;cursor:default;transform:none}
+.enquiry-form[data-form-state=success] #form-status{color:#b5d7bf}
+.enquiry-form[data-form-state=error] #form-status,.enquiry-form[data-form-state=activation] #form-status{color:#edc6a1}

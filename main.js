@@ -21,7 +21,30 @@
       : tr('Визуално представяне от портфолиото на SONIK Web Design.', 'A visual presentation from the SONIK Web Design portfolio.');
   }
 
-  function setLanguage(next) {
+  const supportedLanguages = new Set(['bg', 'en']);
+  function urlLanguage() {
+    const value = new URL(window.location.href).searchParams.get('lang');
+    const language = value ? value.toLowerCase() : '';
+    return supportedLanguages.has(language) ? language : null;
+  }
+  function preferredLanguage() {
+    const explicit = urlLanguage();
+    if (explicit) return explicit;
+    for (const locale of navigator.languages || [navigator.language]) {
+      const language = (locale || '').toLowerCase().split(/[-_]/)[0];
+      if (supportedLanguages.has(language)) return language;
+    }
+    return 'en';
+  }
+  function updateLanguageURL(language, mode) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', language);
+    if (url.href === window.location.href) return;
+    try {
+      history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url.href);
+    } catch (_) { /* Local file previews may restrict History APIs. */ }
+  }
+  function setLanguage(next, { historyMode = 'replace' } = {}) {
     lang = next === 'en' ? 'en' : 'bg';
     document.documentElement.lang = lang;
     $$('[data-bg][data-en]').forEach(el => { el.innerHTML = el.dataset[lang]; });
@@ -32,15 +55,18 @@
       'Професионална изработка на сайтове от 200 €. 3D и motion дизайн, анимирани лога и рекламни видеа. Разгледайте проектите на SONIK и заявете индивидуална оферта.',
       'Professional websites from €200. 3D and motion design, animated logos and promotional videos. Explore SONIK’s work and request a tailored quote.'
     );
-    $('#form-status').textContent = '';
     updatePreviewText();
-    try { localStorage.setItem('sonik_lang', lang); } catch (_) { /* Optional preference. */ }
+    if (historyMode) updateLanguageURL(lang, historyMode);
+    $('link[rel="canonical"]').href = `https://sonikwebdesign.com/?lang=${lang}`;
+    $('meta[property="og:url"]').content = `https://sonikwebdesign.com/?lang=${lang}`;
+    $('meta[property="og:locale"]').content = lang === 'bg' ? 'bg_BG' : 'en_GB';
     document.dispatchEvent(new CustomEvent('sonik:language'));
   }
-  let initialLang = 'bg';
-  try { initialLang = localStorage.getItem('sonik_lang') || 'bg'; } catch (_) { /* BG remains the default. */ }
-  setLanguage(initialLang);
-  $$('[data-lang]').forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.lang)));
+  setLanguage(preferredLanguage());
+  $$('[data-lang]').forEach(button => button.addEventListener('click', () => {
+    setLanguage(button.dataset.lang, { historyMode: 'push' });
+  }));
+  window.addEventListener('popstate', () => setLanguage(preferredLanguage(), { historyMode: false }));
   $('#year').textContent = new Date().getFullYear();
 
   const menuButton = $('.menu-toggle');
@@ -191,17 +217,102 @@
       selectedDesign ? `${tr('Харесан дизайн', 'Selected design')}: ${selectedDesign}` : '',
       '', $('#message').value.trim()].filter((line, index, all) => line || all[index - 1]).join('\n');
   }
-  form.addEventListener('submit', event => {
+  let formState = 'idle';
+  let lastSentFingerprint = '';
+  const submitButton = $('.form-submit', form);
+  const submitLabel = $('[data-bg]', submitButton);
+  const editableFields = $$('input:not([type="hidden"]), select, textarea:not([readonly])', form);
+  function fingerprint() {
+    return JSON.stringify([$('#name').value.trim(), $('#email').value.trim(),
+      $('#project-type').value, $('#message').value.trim(), selectedDesign]);
+  }
+  function updateFormUI() {
+    form.dataset.formState = formState;
+    const pending = formState === 'sending';
+    form.setAttribute('aria-busy', String(pending));
+    submitButton.disabled = pending || (formState === 'success' && fingerprint() === lastSentFingerprint);
+    editableFields.forEach(field => { field.disabled = pending; });
+    submitLabel.textContent = pending ? tr('Изпращане…', 'Sending…')
+      : formState === 'success' ? tr('Запитването е прието', 'Enquiry received')
+      : tr('Изпратете запитване', 'Send your enquiry');
+    const messages = {
+      idle: '',
+      sending: tr('Изпращаме Вашето запитване…', 'Sending your enquiry…'),
+      success: tr('Благодарим. Запитването Ви е прието. Ще отговорим на посочения имейл.',
+        'Thank you. Your enquiry has been accepted. We’ll reply to the email address you provided.'),
+      activation: tr('Формата все още се активира. Данните Ви са запазени тук. Можете да използвате контакта по имейл.',
+        'The form is still being activated. Your details remain here. You can use our email contact.'),
+      error: tr('Не получихме потвърждение за изпращането. Данните Ви са запазени тук. Проверете връзката и опитайте отново или използвайте контакта по имейл.',
+        'We could not confirm submission. Your details remain here. Check your connection and try again, or use our email contact.')
+    };
+    $('#form-status').textContent = messages[formState] || '';
+    $('#copy-enquiry').hidden = !['error', 'activation'].includes(formState);
+  }
+  function setFormState(state) {
+    formState = state;
+    updateFormUI();
+  }
+  document.addEventListener('sonik:language', updateFormUI);
+  updateFormUI();
+
+  form.addEventListener('submit', async event => {
     event.preventDefault();
+    if (formState === 'sending' || (formState === 'success' && fingerprint() === lastSentFingerprint)) return;
+    for (const field of [$('#name'), $('#message')]) {
+      field.setCustomValidity(field.value.trim() ? '' : tr('Моля, попълнете това поле.', 'Please fill in this field.'));
+    }
     if (!form.reportValidity()) return;
-    const subject = tr('Запитване за сайт — SONIK', 'Website enquiry — SONIK');
-    const link = document.createElement('a');
-    link.href = `mailto:sonikwebco@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquiryText())}`;
-    link.click();
-    $('#form-status').textContent = tr(
-      'Изпратете запитването от Вашата имейл програма. Ако тя не се отвори, копирайте текста и го изпратете на sonikwebco@gmail.com.',
-      'Send the enquiry from your email app. If it did not open, copy the text and email it to sonikwebco@gmail.com.'
-    );
+    if ($('#contact-website').value) {
+      setFormState('error');
+      return;
+    }
+    const draftFingerprint = fingerprint();
+    const source = new URL(window.location.href);
+    source.search = '';
+    source.hash = '';
+    source.searchParams.set('lang', lang);
+    const payload = {
+      name: $('#name').value.trim(),
+      email: $('#email').value.trim(),
+      service: $('#project-type').selectedOptions[0].textContent,
+      message: $('#message').value.trim(),
+      design: selectedDesign || tr('Няма избран дизайн', 'No design selected'),
+      language: lang,
+      _subject: tr('Ново запитване — SONIK', 'New enquiry — SONIK'),
+      _replyto: $('#email').value.trim(),
+      _template: 'table',
+      _honey: '',
+      _url: ['http:', 'https:'].includes(source.protocol) ? source.href : `https://sonikwebdesign.com/?lang=${lang}`
+    };
+    setFormState('sending');
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    try {
+      const endpoint = form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+        credentials: 'omit'
+      });
+      const result = await response.json();
+      // Activation notices must never be shown as a delivered enquiry.
+      if (typeof result.message === 'string' && /activat|confirm.{0,45}email|email.{0,45}confirm/i.test(result.message)) {
+        setFormState('activation');
+        return;
+      }
+      if (!response.ok || !(result.success === true || result.success === 'true')) {
+        throw new Error('Submission was not confirmed');
+      }
+      lastSentFingerprint = draftFingerprint;
+      setFormState('success');
+      $('#copy-fallback').hidden = true;
+    } catch (_) {
+      setFormState('error');
+    } finally {
+      clearTimeout(timeout);
+    }
   });
   $('#copy-enquiry').addEventListener('click', async () => {
     if (!form.reportValidity()) return;
@@ -219,10 +330,17 @@
       $('#form-status').textContent = tr('Копирайте избрания текст и го изпратете на sonikwebco@gmail.com.', 'Copy the selected text and email it to sonikwebco@gmail.com.');
     }
   });
-  form.addEventListener('input', () => {
-    $('#form-status').textContent = '';
+  function editedEnquiry() {
+    if (formState === 'sending') return;
+    $('#name').setCustomValidity('');
+    $('#message').setCustomValidity('');
+    setFormState('idle');
     $('#copy-fallback').hidden = true;
-  });
+  }
+  form.addEventListener('input', editedEnquiry);
+  form.addEventListener('change', editedEnquiry);
+  $$('[data-design], [data-plan], #choose-design').forEach(button => button.addEventListener('click', editedEnquiry));
+
 
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(entries => {
