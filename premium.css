@@ -16,3 +16,39 @@ body{background:var(--paper)}::selection{background:var(--gold);color:#121518}:f
 @media(max-width:360px){.hero.container{padding-inline:16px}.hero h1{font-size:34px}.hero h1 em{font-size:.63em}.hero-top .eyebrow{font-size:6px}.hero-art{height:auto}.hero-note{font-size:7px}.hero-description{font-size:11px}.shot-front{margin-top:-30px}.price-sticker{width:137px;min-width:137px;padding:10px}.price-sticker strong{font-size:23px}.studio-ribbon{font-size:5px;gap:10px}.benefit-strip>div{font-size:8px}.plan-label{font-size:5px}.contact-copy h2{font-size:33px}.mobile-contact{padding-inline:16px}.mobile-contact .button{font-size:8px;gap:10px}.mobile-contact>span{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.hero-shot{transition:none}}
 @media print{body{background:white;color:black}.hero.container{background:white;color:black}.hero h1,.hero h1 em{color:black}.hero-description{color:#333}.hero-art,.studio-ribbon{display:none}.services-section,.process-section,.contact-section,.price-card,.price-card.featured{background:white;color:black}.service-card h3,.service-card p,.price,.price-card li,.step h3,.step p{color:black}}
+
+/* New Shade — flagship commerce case study */
+.newshade-case{position:relative;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(360px,.82fr);gap:0;margin-bottom:54px;border:1px solid #b99765;border-radius:18px;overflow:hidden;background:#0b1411;color:#f8f4e9;box-shadow:0 30px 80px #0b14111c}
+.newshade-visual{position:relative;min-width:0;background:radial-gradient(circle at 70% 20%,#315f4e55,transparent 46%),#0b1411;padding:28px 0 76px 28px;overflow:hidden}
+.newshade-visual:after{content:"SONIK / COMMERCE SYSTEM";position:absolute;left:30px;bottom:31px;color:#cbb185;font-size:8px;font-weight:800;letter-spacing:.25em}
+.newshade-preview{position:relative;display:block;width:calc(100% + 72px);padding:0;border:0;border-radius:13px 0 0 13px;overflow:hidden;background:#15231e;box-shadow:0 20px 60px #0007;text-align:left}
+.newshade-preview img{display:block;width:100%;height:auto;aspect-ratio:1.6;object-fit:cover;transition:transform .55s ease}
+.newshade-preview:hover img{transform:scale(1.018)}
+.newshade-preview .image-open{right:94px;bottom:18px;background:#e9d3a8;color:#102019}
+.case-live{position:absolute;display:flex;align-items:center;gap:8px;left:18px;top:18px;padding:9px 12px;border:1px solid #ffffff29;border-radius:999px;background:#0c1713d9;backdrop-filter:blur(10px);color:#fff;font-size:8px;font-weight:800;letter-spacing:.13em}
+.case-live i{width:7px;height:7px;border-radius:50%;background:#78d69f;box-shadow:0 0 0 5px #78d69f1f}
+.newshade-copy{position:relative;z-index:2;padding:34px 36px 86px;background:linear-gradient(145deg,#15231e 0%,#0d1512 76%)}
+.newshade-copy:before{content:"";position:absolute;right:-100px;top:-120px;width:310px;height:310px;border:1px solid #d3b78520;border-radius:50%}
+.case-kicker{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:24px;border-bottom:1px solid #ffffff1c;color:#cbb185;font-size:8px;font-weight:800;letter-spacing:.18em}
+.case-kicker a{display:flex;align-items:center;gap:10px;color:#f4ead7;letter-spacing:.08em}
+.case-kicker a:hover span{text-decoration:underline;text-underline-offset:5px}
+.case-kicker b{display:inline-grid;place-items:center;min-width:43px;height:24px;padding:0 8px;border-radius:999px;background:#e7d0a5;color:#122019;font-size:7px;letter-spacing:.12em}
+.newshade-copy h3{position:relative;margin-top:30px;color:#fff;font-size:clamp(44px,4.5vw,72px);line-height:.95;letter-spacing:-.065em}
+.case-lead{position:relative;margin-top:22px;color:#e8d7b7;font-size:18px;font-weight:800;line-height:1.4;max-width:430px}
+.case-description{position:relative;margin-top:15px;color:#b8c1bb;font-size:11px;line-height:1.85;max-width:450px}
+.case-capabilities{position:relative;list-style:none;margin:28px 0 0;padding:0;border-top:1px solid #ffffff17}
+.case-capabilities li{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #ffffff17;color:#e6ebe7;font-size:10px;line-height:1.5}
+.case-capabilities strong{color:#a98b5e;font-size:8px;letter-spacing:.1em}
+.case-actions{position:relative;display:flex;align-items:center;gap:19px;margin-top:26px}
+.case-actions .button{background:#e6cea0;color:#122019;border-color:#e6cea0;font-size:10px}
+.case-actions .button:hover{background:#fff;color:#122019}
+.case-actions>span{max-width:130px;color:#839087;font-size:8px;line-height:1.55}
+.case-flow{position:absolute;z-index:3;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:13px;min-height:55px;padding:12px 30px;border-top:1px solid #ffffff17;background:#08100d;color:#d5c19b;font-size:8px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.case-flow i{display:block;width:24px;height:1px;background:linear-gradient(90deg,#765d38,#d5c19b)}
+.newshade-case+.work-grid{margin-top:0}
+.work-card--featured .work-image{background:#0b1411}
+.work-card--featured .work-image img{aspect-ratio:1.55;object-fit:cover}
+.work-live-label{position:absolute;left:18px;top:18px;padding:8px 11px;border:1px solid #ffffff35;border-radius:999px;background:#0b1712d9;color:#e9d3a8;font-size:7px;font-weight:800;letter-spacing:.15em;backdrop-filter:blur(8px)}
+
+@media(max-width:950px){.newshade-case{grid-template-columns:1fr}.newshade-visual{padding:22px 22px 68px}.newshade-preview{width:100%;border-radius:12px}.newshade-preview .image-open{right:18px}.newshade-copy{padding:32px 32px 82px}.case-description{max-width:650px}.case-capabilities{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}.case-actions>span{max-width:none}.case-flow{overflow-x:auto;justify-content:flex-start}}
+@media(max-width:620px){.newshade-case{margin-inline:-8px;margin-bottom:38px;border-radius:14px}.newshade-visual{padding:12px 12px 54px}.newshade-visual:after{left:16px;bottom:23px;font-size:6px}.newshade-preview{border-radius:9px}.newshade-preview img{aspect-ratio:1.38}.case-live{left:10px;top:10px;padding:7px 9px;font-size:6px}.newshade-preview .image-open{right:10px;bottom:10px;width:34px;height:34px}.newshade-copy{padding:27px 22px 78px}.case-kicker{padding-bottom:18px}.newshade-copy h3{font-size:45px;margin-top:25px}.case-lead{font-size:16px;margin-top:17px}.case-description{font-size:10px}.case-capabilities{display:block;margin-top:22px}.case-capabilities li{font-size:10px;padding:11px 0}.case-actions{align-items:flex-start;flex-direction:column;gap:12px}.case-actions .button{width:100%;justify-content:space-between}.case-actions>span{font-size:7px}.case-flow{gap:9px;padding-inline:20px;font-size:7px}.case-flow i{width:14px;flex:0 0 14px}}
