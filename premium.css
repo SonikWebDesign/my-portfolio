@@ -49,6 +49,12 @@ body{background:var(--paper)}::selection{background:var(--gold);color:#121518}:f
 .work-card--featured .work-image{background:#0b1411}
 .work-card--featured .work-image img{aspect-ratio:1.55;object-fit:cover}
 .work-live-label{position:absolute;left:18px;top:18px;padding:8px 11px;border:1px solid #ffffff35;border-radius:999px;background:#0b1712d9;color:#e9d3a8;font-size:7px;font-weight:800;letter-spacing:.15em;backdrop-filter:blur(8px)}
+.work-live-label i{display:inline-block;width:6px;height:6px;margin-right:7px;border-radius:50%;background:#65d58a;box-shadow:0 0 0 4px #65d58a1f;vertical-align:middle}
+.work-card--live .work-image{background:#120f0b;border-color:#a77a3f80}
+.work-card--live .work-image:hover{border-color:#d2a45c}
+.project-live-link{display:inline-flex;align-items:center;gap:11px;margin-top:13px;color:#d7b77f;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #d7b77f66;padding-bottom:5px}
+.project-live-link b{font-size:15px;font-weight:400;transition:transform .2s ease}
+.project-live-link:hover b{transform:translate(3px,-3px)}
 
 @media(max-width:950px){.newshade-case{grid-template-columns:1fr}.newshade-visual{padding:22px 22px 68px}.newshade-preview{width:100%;border-radius:12px}.newshade-preview .image-open{right:18px}.newshade-copy{padding:32px 32px 82px}.case-description{max-width:650px}.case-capabilities{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}.case-actions>span{max-width:none}.case-flow{overflow-x:auto;justify-content:flex-start}}
 @media(max-width:620px){.newshade-case{margin-inline:-8px;margin-bottom:38px;border-radius:14px}.newshade-visual{padding:12px 12px 54px}.newshade-visual:after{left:16px;bottom:23px;font-size:6px}.newshade-preview{border-radius:9px}.newshade-preview img{aspect-ratio:1.38}.case-live{left:10px;top:10px;padding:7px 9px;font-size:6px}.newshade-preview .image-open{right:10px;bottom:10px;width:34px;height:34px}.newshade-copy{padding:27px 22px 78px}.case-kicker{padding-bottom:18px}.newshade-copy h3{font-size:45px;margin-top:25px}.case-lead{font-size:16px;margin-top:17px}.case-description{font-size:10px}.case-capabilities{display:block;margin-top:22px}.case-capabilities li{font-size:10px;padding:11px 0}.case-actions{align-items:flex-start;flex-direction:column;gap:12px}.case-actions .button{width:100%;justify-content:space-between}.case-actions>span{font-size:7px}.case-flow{gap:9px;padding-inline:20px;font-size:7px}.case-flow i{width:14px;flex:0 0 14px}}
