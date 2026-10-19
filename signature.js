@@ -167,6 +167,15 @@
     const card = cards[active];
     $('.reel-current', reel).textContent = card.dataset.title;
     $('.reel-current-kind', reel).textContent = `${card.dataset.kind === 'project' ? tr('Портфолио', 'Portfolio') : tr('Примерен дизайн', 'Design example')} · ${tr(card.dataset.categoryBg, card.dataset.categoryEn)}`;
+    const liveLink = $('.reel-live-link', reel);
+    if (card.dataset.liveUrl) {
+      liveLink.href = card.dataset.liveUrl;
+      $('span', liveLink).textContent = tr('Посетете живия сайт', 'Visit the live website');
+      liveLink.hidden = false;
+    } else {
+      liveLink.hidden = true;
+      liveLink.removeAttribute('href');
+    }
     $('.reel-counter', reel).innerHTML = `${String(active + 1).padStart(2, '0')} <span>/ ${String(cards.length).padStart(2, '0')}</span>`;
   }
   $('.reel-prev', reel).addEventListener('click', () => show(active - 1));
