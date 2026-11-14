@@ -184,3 +184,42 @@
 @media(max-width:620px){
   body .hero-top .eyebrow,body .hero-top .eyebrow span,body .reel-heading .eyebrow,body .contact-section .eyebrow,body .contact-section .eyebrow span,body .motion-feature-copy .eyebrow{font-size:10px}
 }
+
+/* ───────── Links to case studies, service pages and the footer directory ───────── */
+.project-case-link,.service-more{display:inline-flex;align-items:center;gap:10px;margin-top:13px;margin-right:22px;color:#f1e7d6;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #f1e7d655;padding-bottom:5px}
+.project-case-link b,.service-more b{font-size:14px;font-weight:400;transition:transform .2s ease}
+.project-case-link:hover b,.service-more:hover b{transform:translateX(4px)}
+.service-more{display:flex;width:max-content;margin:16px 0 0;color:#d5bc97;border-color:#d5bc9755}
+.case-links{display:flex;flex-wrap:wrap;align-items:center}
+.case-links .project-live-link,.case-links .project-case-link{margin-top:0}
+.niche-band{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:28px;row-gap:6px;margin-top:22px;padding:24px 31px;border:1px solid #a88a5980;background:linear-gradient(120deg,#2a251d,#171b1e 62%);color:#efe6d6;transition:border-color .25s}
+.niche-band:hover{border-color:#d2a45c}
+.niche-band-label{grid-row:1/3;font-size:9px;letter-spacing:.18em;color:#c8aa7c}
+.niche-band strong{font-size:22px;font-weight:400;letter-spacing:-.03em}
+.niche-band-text{grid-column:2;font-size:12px;color:#aaa294}
+.niche-band b{grid-row:1/3;grid-column:3;font-size:22px;font-weight:400;color:#c8aa7c;transition:transform .2s}
+.niche-band:hover b{transform:translateX(5px)}
+.contact-call{display:inline-flex;align-items:center;gap:10px;margin:4px 0 18px;padding:13px 18px;border:1px solid #c8aa7c;color:#e9d3a8;font-size:12px;letter-spacing:.04em}
+.contact-call[hidden]{display:none}
+.contact-call:hover{background:#c8aa7c14}
+.footer-links{display:grid;grid-template-columns:1fr 2fr;gap:28px 40px;padding:26px 0 28px;border-top:1px solid #ffffff1b}
+.footer-links>div{display:flex;flex-wrap:wrap;gap:10px 22px;align-content:flex-start}
+.footer-links-title{flex:0 0 100%;font-size:9px;letter-spacing:.18em;color:#8c8271}
+.footer-links a{font-size:12px;color:#b9b1a3}
+.footer-links a:hover{color:#e9d3a8}
+@media(max-width:620px){
+  body .project-case-link,body .service-more{font-size:12px}
+  body .case-links{gap:14px 0}
+  .niche-band{grid-template-columns:1fr auto;padding:22px 20px}
+  .niche-band-label{grid-row:auto;grid-column:1/3;font-size:10px}
+  .niche-band strong{font-size:20px}
+  .niche-band-text{grid-column:1;font-size:13.5px;line-height:1.55}
+  .niche-band b{grid-row:2/4;grid-column:2}
+  .footer-links{grid-template-columns:1fr;gap:24px}
+  .footer-links a{font-size:13.5px}
+  .footer-links-title{font-size:10px}
+  body .contact-call{font-size:13.5px}
+}
+.price.price--quote strong{font-size:clamp(30px,3.2vw,40px);letter-spacing:-.03em}
+.project-case-link,.project-live-link{white-space:nowrap}
+.case-actions{flex-wrap:wrap;row-gap:16px}

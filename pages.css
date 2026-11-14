@@ -1,0 +1,79 @@
+/* SONIK — inner pages (services and case studies). Builds on style.css, premium.css and signature.css. */
+.page-main{padding-top:44px}
+.lang-link{display:inline-flex;align-items:center;justify-content:center;min-width:32px;min-height:44px;padding:4px;font-size:10px;color:#a59e92}
+.lang-link[aria-current]{color:var(--gold,#c8aa7c);font-weight:800}
+
+.crumbs{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:34px;font-size:11px;letter-spacing:.06em;color:#8c8271}
+.crumbs a{color:#b9b1a3}
+.crumbs a:hover{color:#e9d3a8}
+
+.page-hero{padding-block:34px 84px}
+.page-hero h1{max-width:13em;margin:16px 0 0;font-size:clamp(38px,5.3vw,74px);font-weight:800;line-height:1.04;letter-spacing:-.05em}
+.page-hero h1 em,.page-cta h2 em{display:block;font-family:Georgia,'Times New Roman',serif;font-weight:400;font-style:italic;letter-spacing:-.035em;color:#ccae7e}
+.page-lead{max-width:43em;margin-top:26px;font-size:17px;line-height:1.75;color:#cfc7ba}
+.page-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 30px;margin-top:34px}
+.page-actions .button b{font-size:16px;font-weight:400}
+.page-actions .text-link{font-size:13px}
+.page-actions .calendly-link[hidden]{display:none}
+.page-price{display:inline-block;margin-top:30px;padding:10px 16px;border:1px solid #a88a5980;font-size:12px;letter-spacing:.06em;color:#e9d3a8}
+.page-note{margin-top:22px;font-size:13px;color:#aaa294}
+.page-note a{color:#e9d3a8;border-bottom:1px solid #e9d3a855;padding-bottom:3px}
+
+.page-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 34px;margin:52px 0 0;border-top:1px solid #ffffff20;border-bottom:1px solid #ffffff20}
+.page-facts div{padding:20px 0}
+.page-facts dt{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#aa9576}
+.page-facts dd{margin:9px 0 0;font-size:15px;line-height:1.5;color:#efe6d6}
+
+.page-media{margin:56px 0 0;padding:10px;border:1px solid #82725650;background:#171b1f}
+.page-media img,.page-media video{display:block;width:100%;height:auto}
+.page-media video{aspect-ratio:1280/732;background:#080b0e;object-fit:cover}
+.page-media figcaption{padding:12px 4px 2px;font-size:11px;letter-spacing:.06em;color:#8c8271}
+.page-media--second{margin-top:64px}
+
+.page-section{padding-block:88px;border-top:1px solid #ffffff14}
+.page-section .section-heading{align-items:flex-end}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px 70px;align-items:start}
+.prose p{max-width:41em;font-size:16px;line-height:1.85;color:#c3bbad}
+
+.feature-list{margin:0;padding:0;list-style:none;border-top:1px solid #ffffff17}
+.feature-list li{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:19px 0;border-bottom:1px solid #ffffff17}
+.feature-list strong{padding-top:2px;font-family:Georgia,serif;font-size:14px;font-weight:400;color:#a88d64}
+.feature-list span{font-size:14px;line-height:1.7;color:#aaa294}
+.feature-list b{display:block;margin-bottom:4px;font-size:17px;font-weight:400;letter-spacing:-.02em;color:#efe6d6}
+
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px}
+.card-grid .work-card{margin-top:0}
+.card-grid .work-image{display:block}
+.card-grid .work-info h3{font-size:22px}
+.card-grid .work-info h3 a:hover{color:#e9d3a8}
+
+.page-section .faq-list details:first-child{border-top:1px solid #ffffff1e}
+
+.page-cta{background:linear-gradient(160deg,#1c1a16,#101519 70%)}
+.page-cta h2{margin-top:14px}
+
+@media(max-width:850px){
+  .split{grid-template-columns:1fr}
+  .card-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .page-main{padding-top:22px}
+  .page-hero{padding-block:22px 56px}
+  .page-hero h1{font-size:38px}
+  .page-lead{font-size:16px;line-height:1.7}
+  .crumbs{font-size:12px;margin-bottom:26px}
+  .page-facts{grid-template-columns:1fr;margin-top:38px}
+  .page-facts div{padding:15px 0;border-bottom:1px solid #ffffff12}
+  .page-facts div:last-child{border-bottom:0}
+  .page-facts dt{font-size:10px}
+  .page-media{margin-top:38px;padding:6px}
+  .page-media figcaption{font-size:12px}
+  .page-section{padding-block:60px}
+  .prose p{font-size:15.5px}
+  .feature-list li{grid-template-columns:38px 1fr}
+  .feature-list span{font-size:14.5px}
+  .card-grid{grid-template-columns:1fr;gap:38px}
+  .page-actions .text-link,.page-note{font-size:14px}
+  .page-price{font-size:12.5px;line-height:1.6}
+  .lang-link{font-size:12px}
+}

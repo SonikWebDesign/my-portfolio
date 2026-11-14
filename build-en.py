@@ -18,20 +18,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 BASE = "https://sonikwebdesign.com/"
 EN_URL = BASE + "en.html"
-TITLE = "Websites from €200 | SEO & AI Search Visibility | SONIK"
-DESC = ("Websites from €200, SEO and visibility in AI search such as ChatGPT, Gemini and Perplexity. "
-        "3D and motion design. Explore SONIK’s work and request a tailored quote.")
+TITLE = "Web Design, SEO & AI Search Visibility | SONIK Web Design"
+DESC = ("Web design studio for websites, online stores, SEO and visibility in AI search such as ChatGPT, Gemini and "
+        "Perplexity. Clients in the USA, UK and Bulgaria. Explore SONIK’s work and request a tailored quote.")
 OG_TITLE = "Websites, SEO & AI Search Visibility | SONIK"
-OG_DESC = "Websites from €200, SEO and AI search visibility, 3D and motion design. A distinctive presence for your business."
+OG_DESC = "Websites, online stores, SEO and AI search visibility, 3D and motion design. A distinctive presence for your business."
 
 # Bulgarian strings that live in attributes or static text without data-en.
 STATIC = {
-    "Commerce OS — онлайн магазин и бизнес система": "Commerce OS — online store and business system",
-    "Commerce OS — онлайн магазин, виртуален офис и автоматизация": "Commerce OS — online store, virtual office and automation",
+    "New Shade — онлайн магазин и бизнес система": "New Shade — online store and business system",
+    "New Shade — онлайн магазин, виртуален офис и автоматизация": "New Shade — online store, virtual office and automation",
     "Exclusive Barbershop — премиум сайт за барбършоп в САЩ": "Exclusive Barbershop — premium barbershop website in the USA",
     "Exclusive Barbershop — премиум сайт за барбършоп": "Exclusive Barbershop — premium barbershop website",
     "Анимация: кодът се изписва в редактор и се превръща в златния знак SONIK.": "Animation: code is typed in an editor and becomes the gold SONIK mark.",
-    "SONIK Web Design — сайтове от 200 €": "SONIK Web Design — websites from €200",
+    "SONIK Web Design — сайтове от 200 €": "SONIK Web Design — websites, SEO and AI search visibility",
     "Портфолио · Commerce автоматизация": "Portfolio · Commerce automation",
     ">Посетете живия сайт<": ">Visit the live website<",
     ">Пауза<": ">Pause<",
@@ -98,8 +98,11 @@ def structured_data(source):
     faqs = [(strip(q), strip(a)) for q, a in re.findall(
         r'<details><summary><span data-bg="[^"]*" data-en="([^"]*)".*?</summary><p data-bg="[^"]*" data-en="([^"]*)"',
         faq_section, flags=re.S)]
-    grid = source[source.index('<div class="work-grid">'):source.index('<div class="templates-header">')]
-    works = []
+    grid = source[source.index('<div class="work-grid">'):source.index('<p class="swipe-note work-swipe-note"')]
+    works = [{"@type": "CreativeWork", "name": "New Shade",
+              "description": "SONIK’s own venture: an online store for made-to-order sun-shading louvres with Stripe payments, a virtual office, automated invoices and first-party analytics.",
+              "image": BASE + "work-new-shade.webp", "url": "https://new-shade.com",
+              "mainEntityOfPage": BASE + "case-study-new-shade.html", "creator": org}]
     for card in re.findall(r'<article class="work-card.*?</article>', grid, flags=re.S):
         work = {
             "@type": "CreativeWork",
@@ -111,6 +114,9 @@ def structured_data(source):
         link = re.search(r'class="project-live-link" href="([^"]*)"', card)
         if link:
             work["url"] = link.group(1)
+        case = re.search(r'class="project-case-link" href="[^"]*" data-en-href="([^"]*)"', card)
+        if case:
+            work["mainEntityOfPage"] = BASE + case.group(1)
         works.append(work)
 
     def offer(name, description, price=None):
@@ -129,7 +135,7 @@ def structured_data(source):
          "description": "A web design studio building websites, SEO and AI search visibility, and 3D & motion design. "
                         "Based in Sofia, Bulgaria, working with clients in Bulgaria, the UK and the USA.",
          "slogan": "Precision. Character. Presence.", "email": "sonikwebco@gmail.com",
-         "logo": BASE + "social-preview.png", "image": BASE + "social-preview.png", "priceRange": "from €200",
+         "logo": BASE + "social-preview.png", "image": BASE + "social-preview.png",
          "areaServed": ["BG", "GB", "US"], "knowsLanguage": ["bg", "en"],
          "address": {"@type": "PostalAddress", "addressLocality": "Sofia", "addressCountry": "BG"},
          "sameAs": ["https://www.instagram.com/sonikwebdesign/", "https://github.com/SonikWebDesign"],
@@ -137,9 +143,9 @@ def structured_data(source):
                         "AI search optimization (GEO / AEO)", "Schema.org structured data", "Online stores",
                         "3D and motion design"],
          "hasOfferCatalog": {"@type": "OfferCatalog", "name": "SONIK Web Design services", "itemListElement": [
-             offer("Landing page", "A single page with up to 5 sections, phone and tablet layouts, and essential SEO metadata.", 200),
-             offer("Business website", "A complete digital presentation of a company — services, projects and expertise.", 450),
-             offer("Online store", "A catalogue, navigation and checkout designed around the customer.", 900),
+             offer("Landing page", "A single page with up to 5 sections, phone and tablet layouts, and essential SEO metadata."),
+             offer("Business website", "A complete digital presentation of a company — services, projects and expertise."),
+             offer("Online store", "A catalogue, navigation and checkout designed around the customer."),
              offer("SEO & AI search visibility", "SEO and visibility in AI search such as ChatGPT, Gemini and Perplexity: technical audit, "
                    "structured data, AI crawler access, llms.txt, Google Search Console and local SEO. Tailored quote."),
              offer("3D & motion design", "Logo animations, 3D visuals, intro scenes and promotional videos for websites and social media. Tailored quote."),
@@ -181,6 +187,13 @@ def main():
     text = sub(r'<script type="application/ld\+json">.*?</script>', f'<script type="application/ld+json">{ld}</script>', text)
     text = sub(r'data-lang="bg" aria-pressed="true"', 'data-lang="bg" aria-pressed="false"', text)
     text = sub(r'data-lang="en" aria-pressed="false"', 'data-lang="en" aria-pressed="true"', text)
+    # Links point to the English versions of the inner pages.
+    text = re.sub(r'href="[^"]*"( data-en-href="([^"]*)")', r'href="\2"\1', text)
+    # No fixed prices on the English page: every project is quoted.
+    text, priced = re.subn(r'<p class="price">.*?</p><p class="price-unit"[^>]*>.*?</p>',
+                           '<p class="price price--quote"><strong>Custom quote</strong></p><p class="price-unit">scoped to your project</p>', text, flags=re.S)
+    if priced != 3:
+        raise SystemExit(f"build-en.py: expected 3 price blocks, found {priced}")
     # Form placeholders.
     text = re.sub(r'placeholder="[^"]*"([^>]*data-en-placeholder="([^"]*)")', r'placeholder="\2"\1', text)
     for bg, en in sorted(STATIC.items(), key=lambda kv: -len(kv[0])):

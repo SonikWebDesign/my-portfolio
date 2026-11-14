@@ -1,40 +1,39 @@
 # SONIK Web Design
 
-> SONIK Web Design е студио за изработка на сайтове, SEO и видимост в AI търсачки, 3D и motion дизайн. Базирано е в София, България, и работи с клиенти в България, Великобритания и САЩ. Сайт: https://sonikwebdesign.com/ · Имейл: sonikwebco@gmail.com
+> SONIK Web Design е студио за изработка на сайтове, онлайн магазини, SEO и видимост в AI търсачки, 3D и motion дизайн. Базирано е в София, България, и работи с клиенти в България, Великобритания и САЩ. Специализация: сайтове за барбершопи и салони. Сайт: https://sonikwebdesign.com/ · Имейл: sonikwebco@gmail.com
 >
-> SONIK Web Design is a web design studio based in Sofia, Bulgaria, building websites, SEO and AI search visibility, and 3D & motion design for clients in Bulgaria, the UK and the USA.
+> SONIK Web Design is a web design studio based in Sofia, Bulgaria. It builds websites, online stores, SEO and AI search visibility, and 3D & motion design for clients in Bulgaria, the UK and the USA, with a specialism in barbershop and salon websites.
 
-## Страници / Pages
+## Основни страници / Main pages
 
 - [Начална страница (български)](https://sonikwebdesign.com/): услуги, цени, проекти, въпроси и отговори.
-- [Home page (English)](https://sonikwebdesign.com/en.html): services, pricing, selected work and FAQ.
+- [Home page (English)](https://sonikwebdesign.com/en.html): services, selected work and FAQ.
 
-## Услуги и начални цени / Services and starting prices
+## Услуги / Services
 
-- Лендинг страница (landing page): от 200 € — една страница с до 5 секции, мобилна версия, базови SEO метаданни.
-- Фирмен сайт (business website): от 450 €.
-- Онлайн магазин (online store): от 900 €.
-- SEO и AI видимост (SEO & AI search visibility): индивидуална оферта — технически SEO одит, структурирани данни (Schema.org), достъп за AI роботи и llms.txt, Google Search Console, локално SEO. За нови и за съществуващи сайтове.
-- 3D и motion дизайн: индивидуална оферта — лого анимации, 3D визии, рекламни видеа.
-- Обновяване на съществуващ сайт (redesign): индивидуална оферта.
+- [Barbershop website design](https://sonikwebdesign.com/barbershop-website-design.html) · [Сайт за барбершоп](https://sonikwebdesign.com/sait-za-barbershop.html): barber profiles, direct booking through Booksy, TheCut, Square or Cal.com, galleries and an owner panel.
+- [Website design](https://sonikwebdesign.com/website-design.html) · [Изработка на сайт](https://sonikwebdesign.com/izrabotka-na-sait.html): landing pages and company websites. В България: лендинг страница от 200 €, фирмен сайт от 450 €.
+- [Online store development](https://sonikwebdesign.com/online-store-development.html) · [Изработка на онлайн магазин](https://sonikwebdesign.com/onlain-magazin.html): catalogue, Stripe checkout, automated invoices, back-office system. В България: от 900 €.
+- [SEO & AI search visibility](https://sonikwebdesign.com/seo-ai-search-visibility.html) · [SEO и AI видимост](https://sonikwebdesign.com/seo-optimizacia.html): technical audit, Schema.org structured data, llms.txt, Google Search Console, local SEO. Custom quote.
+- 3D и motion дизайн / 3D & motion design: logo animations, 3D visuals, promotional videos. Custom quote.
 
-Домейн, хостинг и платени лицензи не са включени в началните цени.
+Clients outside Bulgaria receive a custom quote. Domain, hosting and paid licences are not included.
 
-## Проекти / Selected work
+## Проекти / Case studies
 
-- [210 Barber Studio](https://210barberstudio.com): сайт за барбършоп със 17 бръснари в Сан Антонио, Тексас — избор на бръснар и онлайн резервация.
-- [Exclusive Barbershop](https://exclusive-barbershop.com): премиум сайт за барбършоп в САЩ с резервация през Booksy и TheCut.
-- Commerce OS: онлайн магазин със Stripe плащания, виртуален офис, автоматични фактури и собствена статистика.
-- Woodra A-Frame: сайт за къща за гости край Берковица.
-- NIMA Optical: сайт за оптика.
-- [MAISON D’OR](https://sonikwebdesign.github.io/snhair/): витрина за премиум славянска коса.
-- [Българа](https://sonikwebdesign.github.io/ffbylgara/): сайт за фолклорна формация.
-- [Olga Rusakova](https://sonikwebdesign.github.io/cosmetolog_olga/): личен бранд сайт за козметолог-естетист във Варна.
-- [DANI CUTS](https://sonikwebdesign.github.io/barberD/): сайт за фризьорско студио в Перник.
+- [210 Barber Studio](https://sonikwebdesign.com/case-study-210-barber-studio.html): website for a 17-barber shop in San Antonio, Texas, with per-barber booking links and an owner panel. Live: https://210barberstudio.com
+- [Exclusive Barbershop](https://sonikwebdesign.com/case-study-exclusive-barbershop.html): barbershop website in the USA with booking through Booksy and TheCut. Live: https://exclusive-barbershop.com
+- [New Shade](https://sonikwebdesign.com/case-study-new-shade.html): SONIK's own venture — online store for made-to-order sun-shading louvres with Stripe checkout, virtual office, automated invoices and first-party analytics. Live: https://new-shade.com
+- [Woodra A-Frame](https://sonikwebdesign.com/case-study-woodra-a-frame.html): website for two A-frame guest houses near Berkovitsa, Bulgaria. Live: https://woodra-aframe.com
+- [MAISON D’OR](https://sonikwebdesign.com/case-study-maison-dor.html): showcase for a premium Slavic hair brand.
+- [Българа](https://sonikwebdesign.com/case-study-bulgara.html): website for a Bulgarian folklore ensemble.
+- [Olga Rusakova](https://sonikwebdesign.com/case-study-olga-rusakova.html): personal brand website for an aesthetic cosmetologist in Varna.
+- [DANI CUTS](https://sonikwebdesign.com/case-study-dani-cuts.html): hair studio website in Pernik with online booking through Cal.com.
+- NIMA Optical: website for an optician.
 
 ## Контакт / Contact
 
-- Запитване: https://sonikwebdesign.com/#contact
-- Имейл: sonikwebco@gmail.com
+- Запитване / Enquiry: https://sonikwebdesign.com/en.html#contact
+- Имейл / Email: sonikwebco@gmail.com
 - Instagram: https://www.instagram.com/sonikwebdesign/
-- Езици: български, английски
+- Езици / Languages: български, English

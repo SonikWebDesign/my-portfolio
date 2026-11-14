@@ -151,7 +151,7 @@
     }
     update();
   });
-  activateGroup(tabs[0]);
+  if (tabs.length) activateGroup(tabs[0]);
 
   function openDialog(dialog) {
     closeMenu();
