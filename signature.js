@@ -155,7 +155,8 @@
   function show(index) {
     active = (index + cards.length) % cards.length;
     cards.forEach((card, i) => {
-      const offset = (i - active + cards.length + 3) % cards.length - 3;
+      const half = Math.floor(cards.length / 2);
+      const offset = (i - active + cards.length + half) % cards.length - half;
       card.style.setProperty('--offset', offset);
       card.style.setProperty('--distance', Math.abs(offset));
       card.style.zIndex = 10 - Math.abs(offset);

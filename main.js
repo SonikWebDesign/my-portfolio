@@ -21,52 +21,38 @@
       : tr('Визуално представяне от портфолиото на SONIK Web Design.', 'A visual presentation from the SONIK Web Design portfolio.');
   }
 
-  const supportedLanguages = new Set(['bg', 'en']);
-  function urlLanguage() {
-    const value = new URL(window.location.href).searchParams.get('lang');
-    const language = value ? value.toLowerCase() : '';
-    return supportedLanguages.has(language) ? language : null;
+  // Each language is its own static page: index.html (BG) and en.html (EN).
+  // Search engines and AI crawlers read the right language without running JavaScript.
+  const pageLanguage = document.documentElement.lang === 'en' ? 'en' : 'bg';
+  const languagePage = { bg: './', en: 'en.html' };
+  function goToLanguage(language, replace = false) {
+    const target = languagePage[language] + window.location.hash;
+    if (replace) window.location.replace(target); else window.location.href = target;
   }
-  function preferredLanguage() {
-    const explicit = urlLanguage();
-    if (explicit) return explicit;
-    for (const locale of navigator.languages || [navigator.language]) {
-      const language = (locale || '').toLowerCase().split(/[-_]/)[0];
-      if (supportedLanguages.has(language)) return language;
-    }
-    return 'en';
-  }
-  function updateLanguageURL(language, mode) {
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', language);
-    if (url.href === window.location.href) return;
-    try {
-      history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url.href);
-    } catch (_) { /* Local file previews may restrict History APIs. */ }
-  }
-  function setLanguage(next, { historyMode = 'replace' } = {}) {
+  function setLanguage(next) {
     lang = next === 'en' ? 'en' : 'bg';
     document.documentElement.lang = lang;
     $$('[data-bg][data-en]').forEach(el => { el.innerHTML = el.dataset[lang]; });
     $$('[data-bg-placeholder]').forEach(el => { el.placeholder = el.dataset[`${lang}Placeholder`]; });
     $$('[data-lang]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.lang === lang)));
-    document.title = tr('Изработка на сайтове от 200 € | SONIK Web Design', 'Websites from €200 | SONIK Web Design');
-    $('meta[name="description"]').content = tr(
-      'Професионална изработка на сайтове от 200 €. 3D и motion дизайн, анимирани лога и рекламни видеа. Разгледайте проектите на SONIK и заявете индивидуална оферта.',
-      'Professional websites from €200. 3D and motion design, animated logos and promotional videos. Explore SONIK’s work and request a tailored quote.'
-    );
     updatePreviewText();
-    if (historyMode) updateLanguageURL(lang, historyMode);
-    $('link[rel="canonical"]').href = `https://sonikwebdesign.com/?lang=${lang}`;
-    $('meta[property="og:url"]').content = `https://sonikwebdesign.com/?lang=${lang}`;
-    $('meta[property="og:locale"]').content = lang === 'bg' ? 'bg_BG' : 'en_GB';
     document.dispatchEvent(new CustomEvent('sonik:language'));
   }
-  setLanguage(preferredLanguage());
+  // Older links used ?lang=bg / ?lang=en: send them to the matching page and clean the address.
+  const requestedLanguage = (new URL(window.location.href).searchParams.get('lang') || '').toLowerCase();
+  if ((requestedLanguage === 'bg' || requestedLanguage === 'en') && requestedLanguage !== pageLanguage) {
+    goToLanguage(requestedLanguage, true);
+  } else if (requestedLanguage) {
+    try {
+      const clean = new URL(window.location.href);
+      clean.searchParams.delete('lang');
+      history.replaceState(null, '', clean.href);
+    } catch (_) { /* Local file previews may restrict History APIs. */ }
+  }
+  setLanguage(pageLanguage);
   $$('[data-lang]').forEach(button => button.addEventListener('click', () => {
-    setLanguage(button.dataset.lang, { historyMode: 'push' });
+    if (button.dataset.lang !== lang) goToLanguage(button.dataset.lang);
   }));
-  window.addEventListener('popstate', () => setLanguage(preferredLanguage(), { historyMode: false }));
   $('#year').textContent = new Date().getFullYear();
 
   const menuButton = $('.menu-toggle');

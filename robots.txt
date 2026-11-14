@@ -1,4 +1,21 @@
+# SONIK Web Design — sonikwebdesign.com
+# Всички търсачки и AI асистенти са добре дошли.
+
 User-agent: *
+Allow: /
+
+# AI търсачки и асистенти (изрично разрешени)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
 Allow: /
 
 Sitemap: https://sonikwebdesign.com/sitemap.xml

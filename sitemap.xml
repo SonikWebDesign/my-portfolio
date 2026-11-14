@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sonikwebdesign.com/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://sonikwebdesign.com/</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://sonikwebdesign.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonikwebdesign.com/en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonikwebdesign.com/en.html"/>
+  </url>
+  <url>
+    <loc>https://sonikwebdesign.com/en.html</loc>
+    <lastmod>2026-11-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://sonikwebdesign.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sonikwebdesign.com/en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sonikwebdesign.com/en.html"/>
+  </url>
 </urlset>

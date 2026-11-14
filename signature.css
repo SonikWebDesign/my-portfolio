@@ -96,3 +96,13 @@
 .enquiry-form[data-form-state=success] .form-submit{background:#24372e;border-color:#678b73;color:#d8eadf;cursor:default;transform:none}
 .enquiry-form[data-form-state=success] #form-status{color:#b5d7bf}
 .enquiry-form[data-form-state=error] #form-status,.enquiry-form[data-form-state=activation] #form-status{color:#edc6a1}
+
+/* Services — wide "SEO & AI visibility" card */
+.services-grid .service-card--wide{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:56px;align-items:center;min-height:0;border-left:0;border-top:1px solid #ffffff20}
+.service-card--wide p{min-height:0;max-width:520px}
+.service-wide-list{list-style:none;margin:0;padding:0}
+.service-wide-list li{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid #ffffff14;color:#cfc7ba;font-size:13px}
+.service-wide-list li:first-child{border-top:1px solid #ffffff14}
+.service-wide-list strong{font-family:Georgia,serif;font-weight:400;font-size:13px;color:#a88d64;min-width:22px}
+.service-card--wide .service-wide-note{margin-top:16px;font-size:11px;line-height:1.7;color:#8c8271;max-width:none}
+@media(max-width:850px){.services-grid .service-card--wide{grid-template-columns:1fr;gap:24px}}

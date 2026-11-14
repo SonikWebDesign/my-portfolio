@@ -1,0 +1,41 @@
+# SONIK Web Design
+
+> SONIK Web Design е студио за изработка на сайтове, SEO и видимост в AI търсачки, 3D и motion дизайн. Базирано е в София, България, и работи с клиенти в България, Великобритания и САЩ. Сайт: https://sonikwebdesign.com/ · Имейл: sonikwebco@gmail.com
+>
+> SONIK Web Design is a web design studio based in Sofia, Bulgaria, building websites, SEO and AI search visibility, and 3D & motion design for clients in Bulgaria, the UK and the USA.
+
+## Страници / Pages
+
+- [Начална страница (български)](https://sonikwebdesign.com/): услуги, цени, проекти, въпроси и отговори.
+- [Home page (English)](https://sonikwebdesign.com/en.html): services, pricing, selected work and FAQ.
+
+## Услуги и начални цени / Services and starting prices
+
+- Лендинг страница (landing page): от 200 € — една страница с до 5 секции, мобилна версия, базови SEO метаданни.
+- Фирмен сайт (business website): от 450 €.
+- Онлайн магазин (online store): от 900 €.
+- SEO и AI видимост (SEO & AI search visibility): индивидуална оферта — технически SEO одит, структурирани данни (Schema.org), достъп за AI роботи и llms.txt, Google Search Console, локално SEO. За нови и за съществуващи сайтове.
+- 3D и motion дизайн: индивидуална оферта — лого анимации, 3D визии, рекламни видеа.
+- Обновяване на съществуващ сайт (redesign): индивидуална оферта.
+
+Домейн, хостинг и платени лицензи не са включени в началните цени.
+
+## Проекти / Selected work
+
+- [210 Barber Studio](https://210barberstudio.com): сайт за барбършоп със 17 бръснари в Сан Антонио, Тексас — избор на бръснар и онлайн резервация.
+- [Exclusive Barbershop](https://exclusive-barbershop.com): премиум сайт за барбършоп в САЩ с резервация през Booksy и TheCut.
+- Commerce OS: онлайн магазин със Stripe плащания, виртуален офис, автоматични фактури и собствена статистика.
+- Woodra A-Frame: сайт за къща за гости край Берковица.
+- NIMA Optical: сайт за оптика.
+- [MAISON D’OR](https://sonikwebdesign.github.io/snhair/): витрина за премиум славянска коса.
+- [Българа](https://sonikwebdesign.github.io/ffbylgara/): сайт за фолклорна формация.
+- [Olga Rusakova](https://sonikwebdesign.github.io/cosmetolog_olga/): личен бранд сайт за козметолог-естетист във Варна.
+- [Touched by SMG](https://sonikwebdesign.github.io/touchedbysmg/): сайт за бюти студио в Есекс, Великобритания.
+- [DANI CUTS](https://sonikwebdesign.github.io/barberD/): сайт за фризьорско студио в Перник.
+
+## Контакт / Contact
+
+- Запитване: https://sonikwebdesign.com/#contact
+- Имейл: sonikwebco@gmail.com
+- Instagram: https://www.instagram.com/sonikwebdesign/
+- Езици: български, английски
