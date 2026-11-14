@@ -106,3 +106,81 @@
 .service-wide-list strong{font-family:Georgia,serif;font-weight:400;font-size:13px;color:#a88d64;min-width:22px}
 .service-card--wide .service-wide-note{margin-top:16px;font-size:11px;line-height:1.7;color:#8c8271;max-width:none}
 @media(max-width:850px){.services-grid .service-card--wide{grid-template-columns:1fr;gap:24px}}
+
+/* ───────── Mobile polish (phones) ─────────
+   Readable type sizes, and swipeable rows instead of very long columns. */
+.swipe-note{display:none}
+@media(max-width:620px){
+  /* Body copy */
+  body .hero-description,body .section-intro,body .motion-description,body .case-description,body .work-info p,body .service-card p,body .slide-description,body .step p,body .faq-list details p,body .contact-description,body .quote-nudge p,body .templates-header p{font-size:15px;line-height:1.65}
+  body .faq-list summary{font-size:15px;line-height:1.45;padding-block:19px}
+  body .price-card li{font-size:14px;line-height:1.55}
+  body .case-capabilities li{font-size:14px;padding:13px 0;grid-template-columns:34px 1fr}
+  body .case-capabilities strong{font-size:11px}
+  body .service-wide-list li{font-size:14px}
+  body .case-lead{font-size:17px;line-height:1.45}
+
+  /* Secondary copy */
+  body .plan-sub,body .price-unit,body .services-note p,body .service-card--wide .service-wide-note,body .motion-scope,body .motion-price-note,body .pricing-notes p,body .form-note,body .privacy-note,body .template-disclosure,body .hero-note,body .slide-category,body .form-heading p,body .case-actions>span{font-size:12.5px;line-height:1.6}
+  body .enquiry-form label>span,body .contact-social,body .contact-social a{font-size:12.5px}
+
+  /* Labels and eyebrows */
+  body .eyebrow,body .micro,body .case-kicker,body .slide-help,body .motion-swipe-note,body .motion-example figcaption,body .motion-example figcaption>span:first-child,body .reel-all,body .slide-tags span,body .reel-current-kind{font-size:11px}
+  body .eyebrow,body .micro,body .case-kicker{letter-spacing:.12em}
+  body .case-live,body .work-live-label,body .tab-count,body .case-flow span,body .reel-card-bar,body .plan-label{font-size:10px}
+  body .reel-card-footer{font-size:8.5px}
+  body .studio-ribbon span{font-size:9px}
+  body .plan-number,body .service-top>span:last-child,body .slide-count,body .reel-counter{font-size:12px}
+  body .reel-current{font-size:16px}
+  body .signature-toolbar,body .signature-toolbar button,body .signature-state,body .signature-play-label{font-size:11px}
+
+  /* Links and buttons */
+  body .text-link{font-size:13.5px}
+  body .project-live-link{font-size:12px;margin-top:16px}
+  body .button{font-size:14px}
+  body .price-card .button{font-size:13.5px;min-height:52px}
+  body .category-tabs button{font-size:13px;min-height:48px}
+  body .language button{font-size:12px;padding:6px 4px}
+  body .mobile-contact>span{font-size:12.5px}
+  body .mobile-contact .button{font-size:12px}
+  body .footer-bottom,body .footer-bottom span,body .privacy-trigger,body .back-top,body .footer-top p{font-size:11.5px}
+
+  /* Projects: swipe sideways */
+  .work-grid{display:flex;gap:14px;align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;margin-inline:-20px;padding:0 20px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .work-grid::-webkit-scrollbar,.pricing-grid::-webkit-scrollbar{display:none}
+  .work-grid .work-card{flex:0 0 84%;scroll-snap-align:start;margin-top:0}
+  body .work-info h3{font-size:23px}
+
+  /* Pricing: swipe sideways */
+  .pricing-grid{display:flex;gap:14px;align-items:stretch;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;margin-inline:-20px;padding:0 20px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .pricing-grid .price-card{flex:0 0 86%;scroll-snap-align:start;padding:26px 22px}
+
+  .swipe-note{display:flex;align-items:center;gap:10px;margin:18px 0 0;font-size:11.5px;letter-spacing:.06em;color:#b69c73}
+  .swipe-note::before{content:"";flex:0 0 28px;height:1px;background:#b69c7370}
+
+  /* Process: one calm column, number beside the text */
+  body .steps{grid-template-columns:1fr;gap:0}
+  body .step{display:grid;grid-template-columns:52px 1fr;column-gap:14px;padding:22px 0}
+  body .step .step-number{grid-row:1/3;font-size:28px;line-height:1.1}
+  body .step h3{margin-top:0;font-size:18px}
+  body .step p{margin-top:8px}
+
+  /* A little more air between sections' headings and content */
+  body .section-heading{margin-bottom:30px}
+}
+@media(max-width:360px){
+  body .mobile-contact>span{font-size:11px}
+  body .mobile-contact .button{font-size:11px}
+}
+@media(max-width:620px){
+  body .mobile-contact>span,body .mobile-contact .button,body .mobile-contact .button span{white-space:nowrap}
+  body .mobile-contact>span{font-size:12px}
+  body .mobile-contact .button{font-size:11.5px}
+  body .hero-buttons{flex-wrap:wrap;row-gap:14px}
+  body .hero-buttons .text-link,body .hero-buttons .text-link span{font-size:12.5px}
+  body .case-kicker,body .case-kicker a,body .case-kicker span{font-size:10px}
+  body .case-kicker{letter-spacing:.1em}
+}
+@media(max-width:620px){
+  body .hero-top .eyebrow,body .hero-top .eyebrow span,body .reel-heading .eyebrow,body .contact-section .eyebrow,body .contact-section .eyebrow span,body .motion-feature-copy .eyebrow{font-size:10px}
+}

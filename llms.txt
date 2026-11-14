@@ -30,7 +30,6 @@
 - [MAISON D’OR](https://sonikwebdesign.github.io/snhair/): витрина за премиум славянска коса.
 - [Българа](https://sonikwebdesign.github.io/ffbylgara/): сайт за фолклорна формация.
 - [Olga Rusakova](https://sonikwebdesign.github.io/cosmetolog_olga/): личен бранд сайт за козметолог-естетист във Варна.
-- [Touched by SMG](https://sonikwebdesign.github.io/touchedbysmg/): сайт за бюти студио в Есекс, Великобритания.
 - [DANI CUTS](https://sonikwebdesign.github.io/barberD/): сайт за фризьорско студио в Перник.
 
 ## Контакт / Contact
