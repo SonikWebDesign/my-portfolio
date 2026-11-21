@@ -437,7 +437,7 @@ def case_page(key, lang, sprite):
     ]
     if p.get("video"):
         schemas.append({"@type": "VideoObject", "name": f'{p["name"]} — website walkthrough', "description": desc,
-                        "thumbnailUrl": BASE + p["video"][1], "contentUrl": BASE + p["video"][0], "uploadDate": TODAY})
+                        "thumbnailUrl": BASE + p["video"][1], "contentUrl": BASE + p["video"][0], "uploadDate": TODAY + "T12:00:00+02:00"})
     return slug, alt, shell(lang, slug, alt, title, desc, p["image"], body, schemas, sprite)
 
 
